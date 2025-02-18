@@ -1,10 +1,11 @@
 # FireDetection
-This project focuses on developing a deep learning-based system for the early detection of forest fires using image data. Utilizing the VGG16 architecture, a pre-trained convolutional neural network (CNN), the system aims to classify images into 'fire' and 'non-fire' categories with high accuracy. The project pipeline includes data augmentation techniques such as rotation, zoom, brightness adjustment, and custom preprocessing steps like random cropping and cutout augmentation to enhance the robustness of the model.
+This thesis focuses on developing a fire detection system leveraging deep learning techniques and image data. Specifically, the VGG16 architecture, a pre-trained convolutional neural network (CNN), is employed and fine-tuned to classify images into two categories: "fire" and "non-fire." To enhance the model's generalization capability, various data augmentation techniques and custom preprocessing functions are applied.
 
-Images are sourced from a structured dataset divided into training, validation, and testing sets. The VGG16 model is fine-tuned by freezing the initial layers and training additional dense layers with dropout and batch normalization for improved performance and regularization. Advanced callbacks like early stopping, learning rate reduction, and model checkpointing are employed to optimize the training process and avoid overfitting.
+The system is trained and evaluated on a structured dataset, divided into training, validation, and test datasets. During training, the initial layers of the VGG16 model remain frozen, while additional fully connected layers are introduced with normalization, batch normalization and dropout techniques to improve performance. Furthermore, advanced methods, including early stopping, learning rate scheduling, and model checkpointing, are applied to prevent overfitting.
 
-The system's performance is evaluated using metrics such as accuracy, precision, recall, F1-score, and AUC-ROC curves, alongside visualizations of the confusion matrix. Additionally, a dedicated script allows for testing the model on new images, providing predictions and confidence scores.
+The evaluation of the system's performance is primarily conducted using metrics such as accuracy and loss. Additionally, metrics such as precision, recall, F1-score (harmonic mean of precision and recall), and AUC-ROC curves are utilized, while the performance is also visualized through the normalized confusion matrix. Finally, a testing mechanism is developed to evaluate the model on new images, providing predictions along with corresponding confidence scores.
 
-Overall, this project aims to leverage state-of-the-art deep learning techniques to create a reliable tool for forest fire detection, potentially aiding in timely interventions and disaster management efforts.
+Overall, this work explores and implements state-of-the-art deep learning techniques to develop a reliable fire detection system, with the potential to contribute to timely fire detection and disaster management efforts.
 
 Keywords: Fire detection , Deep learning , Convolutional Neural Network (CNN) , VGG16
+
