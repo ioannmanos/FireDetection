@@ -1,29 +1,3 @@
-"""
-
-import os
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-import numpy as np
-
-def test_model_on_images(model_path, test_folder):
-    model = load_model(model_path)
-    image_paths = [os.path.join(test_folder, img) for img in os.listdir(test_folder) if img.lower().endswith(('png', 'jpg', 'jpeg'))]
-    for img_path in image_paths:
-        img = load_img(img_path, target_size=(224, 224))
-        img_array = img_to_array(img) / 255.0
-        img_array = np.expand_dims(img_array, axis=0)
-        prediction = model.predict(img_array)
-        predicted_label = 'Fire' if prediction[0][0] < 0.5 else 'Non-Fire'
-        confidence = 1 - prediction[0][0] if predicted_label == 'Fire' else prediction[0][0]
-        print(f"Image: {img_path}, Prediction: {predicted_label}, Confidence: {confidence:.2f}")
-
-# Example usage
-if __name__ == "__main__":
-    model_path = 'C:/Users/user/source/repos/FireDetection/VGG_finetuned_model.h5'
-    test_folder = 'C:/Users/user/source/repos/FireDetection/testing fire detection/'
-    test_model_on_images(model_path, test_folder)
-
-"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt
