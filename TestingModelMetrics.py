@@ -25,7 +25,7 @@ loss, accuracy = model.evaluate(test_generator)
 y_pred_probs = model.predict(test_generator)  # Προβλέπει πιθανότητες [0,1]
 
 # 5. Μετατροπή πιθανοτήτων σε δυαδικές κατηγορίες (0 ή 1)
-y_pred = (y_pred_probs > 0.4).astype(int).flatten()  # Αλλαγή threshold σε 0.4
+y_pred = (y_pred_probs > 0.5).astype(int).flatten()  
 
 # 6. Απόκτηση των πραγματικών ετικετών
 y_true = test_generator.classes  # Οι πραγματικές κατηγορίες από το generator
@@ -37,9 +37,6 @@ print("Converted y_pred:", y_pred[:10])
 
 # Εκτύπωση όλων των labels για επιβεβαίωση
 print("All true labels:", y_true)
-
-# --- ΑΦΑΙΡΕΣΗ ΑΝΤΙΣΤΡΟΦΗΣ ΤΩΝ ΕΤΙΚΕΤΩΝ ---
-# Αφήνουμε τα labels όπως είναι
 
 # 7. Υπολογισμός μετρικών
 precision = precision_score(y_true, y_pred)
